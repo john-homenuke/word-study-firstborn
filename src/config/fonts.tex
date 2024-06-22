@@ -1,0 +1,55 @@
+%% Languages
+% @see babel §1.2
+\usepackage[
+    bidi = basic,
+    greek,
+    english
+]{babel}
+\languageattribute{greek}{ancient}
+\babelprovide[import]{hebrew}
+
+
+%% Fonts
+% @see babel §1.14
+%%
+\babelfont{rm}[
+    Language    = Default
+]{CMU Serif}
+
+\babelfont{tt}[
+    Language    = Default
+]{CMU Typewriter Text}
+
+\babelfont[greek]{rm}{CMU Serif}
+\babelfont[greek]{tt}{CMU Typewriter Text}
+
+\babelfont[hebrew]{rm}[
+    Scale       = 1.1,
+    Renderer    = HarfBuzz
+]{Hadasim CLM}
+
+\babelfont[hebrew]{sf}[
+    Scale       = 1.1,
+    Renderer    = HarfBuzz
+]{Miriam CLM}
+
+\babelfont[hebrew]{tt}[
+    Scale       = 1.0,
+    Renderer    = HarfBuzz
+]{Cousine}
+
+
+%% Tags
+% @see babel §1.9
+%%
+\babeltags{he = hebrew}
+\babeltags{gr = greek}
+
+
+%% Old German fonts for text critical symbols
+\usepackage{yfonts}
+
+
+%% Set font size relatively
+\usepackage{relsize}
+

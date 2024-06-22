@@ -1,0 +1,47 @@
+%!LW recipe=latexmk (lualatex)
+\documentclass[12pt]{article}
+\input{config.tex}
+
+
+% Front matter inputs
+\title{\LaTeX\ Essay Template}
+\subtitle{According to the Heritage Manual of Style}
+\author{John Homenuke}
+\date{\today}
+\instructor{Dr.\ Instructor}
+\course{ABC123: Name of course}
+
+
+%% BEGIN DOCUMENT
+\begin{document}
+
+% Front Matter
+\input{content/cover}
+
+% Main Matter
+\raggedright
+\setlength{\parindent}{0.5in}
+\setstretch{2}
+
+Here is some Greek: πρωτότοκος
+
+\textgr{πρωτότοκος}
+
+
+
+% End Matter
+\newpage
+\setstretch{1.0}
+
+\titlespacing{\section}{0in}{0.15in}{\baselineskip}
+\printbiblist[
+    driver  = book,
+    title   = {Abbreviations}
+]{shorthand}
+\printbibliography[
+    check   = {noshorthand},
+    title   = {Bibliography}
+]
+
+
+\end{document}

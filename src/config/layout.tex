@@ -1,0 +1,85 @@
+% Margins
+\usepackage{geometry}
+\geometry{
+    portrait,
+    paper   = letterpaper,
+    left    = 1.0in,
+    right   = 1.0in,
+    top     = 1.0in,
+    bottom  = 1.0in
+}
+
+
+% Line spacing
+\usepackage{setspace}
+
+
+% Title page
+\usepackage{titling}
+
+
+% Section title formatting
+\usepackage[raggedright]{titlesec}
+\titlelabel{}
+\titleformat*{\section}{\singlespacing\centering\normalsize\bfseries}
+\titleformat*{\subsection}{\singlespacing\normalsize\itshape\bfseries}
+\titleformat*{\subsubsection}{\singlespacing\normalsize\itshape}
+\titlespacing{\section}{0in}{0.15in}{0in}
+\titlespacing{\subsection}{0in}{0.15in}{0in}
+\titlespacing{\subsubsection}{0in}{0.15in}{0in}
+\titlespacing*{\paragraph}{0.5in}{0in}{1em}
+
+
+% Quotations
+\usepackage[
+    parthreshold = true,
+    threshold    = 1
+]{csquotes}
+\usepackage[
+    leftmargin   = 0.5in,
+    indentfirst  = false,
+    vskip        = 0in
+]{quoting}
+\renewenvironment{quote}{%
+    \begin{quoting}\singlespacing%
+}{%
+    \end{quoting}%
+}
+
+
+% List styling
+\usepackage{enumitem}
+\setlist[itemize]{
+    topsep       = 0em,
+    itemsep      = 0em,
+    parsep       = 0em,
+    partopsep    = 0em
+}
+\setlist[enumerate]{
+    topsep       = 0em,
+    itemsep      = 0em,
+    parsep       = 0em,
+    partopsep    = 0em,
+    leftmargin   = 0.75in
+}
+
+
+
+\usepackage{calc}
+
+% Tables
+\usepackage[
+    % width  = .75\textwidth,
+    format = hang
+]{caption}
+\renewcommand{\arraystretch}{1.5}
+
+
+% Diagramming
+\usepackage{pmboxdraw}
+\newcommand{\arrowa}{\textSFi\textSFx\ }
+\newcommand{\arrowb}{\textSFii\textSFx\ }
+\newcommand{\arrowc}{\textSFviii\textSFx\ }
+
+
+

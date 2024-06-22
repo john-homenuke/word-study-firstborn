@@ -1,0 +1,32 @@
+%% Solve some footnote formatting issues
+\usepackage[
+    multiple,
+    bottom
+]{footmisc}
+
+
+%% Increase spacing around footnote rule
+\setlength{\skip\footins}{1.2em plus 5pt minus 2pt}
+\renewcommand{\footnoterule}{%
+\kern-3pt
+  \hrule width .4\columnwidth
+  \kern 2.6pt
+  \vspace{0.05in}
+}
+
+
+%% Customize the footnote mark
+\makeatletter
+\renewcommand\@makefntext[1]{%
+\raggedright
+\parindent = 0.5in
+\raisebox{1.5pt}{\scriptsize\@thefnmark}~#1}
+\makeatother
+
+
+%% Set format of recurrent bib entry authors
+\renewcommand{\bibnamedash}{---------. }
+
+
+%% Set URL font-family in citations and bib entries
+\urlstyle{tt}

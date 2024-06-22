@@ -1,0 +1,19 @@
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks  = true,
+    linkcolor   = black,
+    citecolor   = black,
+    filecolor   = black,      
+    urlcolor    = black
+}
+
+\makeatletter
+\AtBeginDocument{
+    \hypersetup{
+        % pdfborder   = 0 0 0,
+        pdftitle    = {\@title},
+        pdfauthor   = {\@author}
+    }
+}
+\makeatother
+\urlstyle{tt}

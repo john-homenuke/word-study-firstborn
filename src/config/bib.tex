@@ -1,0 +1,146 @@
+%% Biblatex
+\usepackage[
+    backend      = biber, 
+    isbn         = false,
+    style        = sbl,
+    ibidtracker  = constrict,
+    ibidpage     = true,
+    sblfootnotes = false
+]{biblatex}
+
+
+% Include bib data files
+\addbibresource{refs/articles.bib}
+\addbibresource{refs/bibles.bib}
+\addbibresource{refs/lexicons.bib}
+\addbibresource{refs/commentaries.bib}
+\addbibresource{refs/grammars.bib}
+\addbibresource{refs/dictionaries.bib}
+\addbibresource{refs/misc.bib}
+
+
+%% Set hanging indent on bib entries
+\setlength{\bibhang}{0.5in}
+
+
+%% Set spacing between bib entries
+\setlength{\bibitemsep}{\baselineskip}
+
+
+%% Exclude bib entries that have the shorthand property
+% Assumes you are using a `shorthand` biblist
+%%
+\defbibcheck{noshorthand}{%
+    \iffieldundef{shorthand}{}{\skipentry}
+}
+
+
+%% Set default location to `N.p.`
+% \DeclareSourcemap{
+%   \maps[datatype=bibtex]{
+%     \map{
+%       \step[fieldset=location, fieldvalue={N.p.}]
+%     }
+%   }
+% }
+
+% \DeclareFieldFormat{cite-location-default}{\lowercase{#1}}
+% \renewbibmacro{cite}{%
+%     \ifcitation{
+%         \iffieldequalstr{location}{N.p.}{%
+%             \printfield[cite-location-default]{location}
+%         }{}
+%     }{}
+%     \usebibmacro{cite}
+% }
+
+%% If no year, indicate `n.d.`
+
+% \renewcommand{\newunitpunct}{,\space}
+
+
+\DeclareDelimFormat[bib]{intitlepunct}{%
+In\space}
+
+\renewcommand{\intitlepunct}{In\space}
+
+
+\renewbibmacro*{bybookauthor/bybookeditor+others/bybooktranslator+others}{%
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{bybookauthor}%
+     \setunit{\addcomma\space}
+     \iffieldundef{maintitle}
+       {\usebibmacro{bybookeditor+others}%
+        \newunit
+        \usebibmacro{bybooktranslator+others}}
+       {\usebibmacro{bybookeditor/bybooktranslator}}}}
+       
+
+%% @incollection driver
+% @see https://github.com/dcpurton/biblatex-sbl/blob/master/latex/sbl.bbx
+%%
+\DeclareBibliographyDriver{incollection}{%
+  \toggletrue{inentrytype}%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \ifentrytype{classictext}
+    {\usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{bytranslator+others}}
+    {\usebibmacro{byauthor/byeditor+others/bytranslator+others}}%
+  \newunit
+  \iffieldundef{booktitle}
+    {}
+    {\bibstring{in} \usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{event+venue+date}%
+     \newunit
+     \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+     \newunit}
+  \usebibmacro{volume+partof}%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \newunit
+     \usebibmacro{event+venue+date}%
+     \newunit
+     \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \printfield{volumes}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \printfield{note}%
+  \setunit{\addcomma\space}
+  \printfield{pages}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{ebook}%
+  \newunit
+  \printfield{addendum}%
+  \newunit
+  \usebibmacro{isbn}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+  \usebibmacro{finentry}%
+}
+
+
+
+

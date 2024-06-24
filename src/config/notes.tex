@@ -1,0 +1,28 @@
+
+\usepackage{alphalph}
+
+% Counter for translation phrase references
+\newcounter{analysis}
+\renewcommand{\theanalysis}{\alphalph{\value{analysis}}}
+
+% tag a word using `analysis` counter
+\newcommand{\analyzehere}[1]{\refstepcounter{analysis}\label{#1}\textsuperscript{\theanalysis}}
+
+% tag a phrase using `analysis` counter
+\newcommand{\analyzeenclosed}[2]{\refstepcounter{analysis}\label{#1}\textsuperscript{\theanalysis}#2\textsuperscript{\theanalysis}}
+
+% reference a tag using `analysis` counter
+\newcommand{\refhere}[1]{\noindent\textsuperscript{\ref{#1}}\enspace}
+\newcommand{\refherenospace}[1]{\textsuperscript{\ref{#1}}}
+\newcommand{\refhereenclosed}[2]{%
+\refherenospace{#1}#2\refherenospace{#1}%
+}
+\newcommand{\refenclosed}[1]{\noindent\textsuperscript{\ref{#1}--\ref{#1}}\enspace}
+
+% reference a tag as itemized note
+\newcommand{\refnote}[1]{\ref{#1}}
+\newcommand{\refnoteenclosed}[1]{\ref{#1}--\ref{#1}}
+
+
+% Verse superscripting in translation
+\newcommand{\versenum}[1]{\textbf{\textsuperscript{#1}}\,}

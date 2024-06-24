@@ -1,0 +1,59 @@
+% Some shorthands
+
+\newcommand{\wawconsec}
+{\foreignlanguage{hebrew}{ו}-consec.}
+\newcommand{\conjwaw}
+{conj.-\foreignlanguage{hebrew}{ו}}
+\newcommand{\Conjwaw}
+{Conj.-\foreignlanguage{hebrew}{ו}}
+\newcommand{\waw}
+{\foreignlanguage{hebrew}{ו}}
+
+\newcommand{\Lord}
+{L\footnotesize ORD\normalsize}
+\newcommand{\Yhwh}
+{Y\footnotesize HWH\normalsize}
+
+\newcommand{\rotatede}
+{\kern0.1em\rotatebox[origin=c]{180}{\kern-0.1em e\rm}}
+\newcommand{\weqatal}
+{w\textsuperscript{\rotatede}q$\bar{\text{a}}$tal\rm}
+\newcommand{\qatal}
+{q$\bar{\text{a}}$tal\rm}
+\newcommand{\wayyiqtol}
+{wayyiqt$\bar{\text{o}}$l\rm}
+\newcommand{\yiqtol}
+{yiqt$\bar{\text{o}}$l\rm}
+
+
+\usepackage{accents}
+
+% Bibles
+\newcommand{\esv}{{\relscale{0.9}ESV}\nocite{2001esv}}
+\newcommand{\niv}{{\relscale{0.9}NIV}\nocite{2011niv}}
+\newcommand{\nlt}{{\relscale{0.9}NLT}\nocite{2015nlt}}
+\newcommand{\net}{{\relscale{0.9}NET}\nocite{2005net}}
+\newcommand{\rv}{{\relscale{0.9}RV}\nocite{1885rv}}
+\newcommand{\kjv}{{\relscale{0.9}KJV}\nocite{1611kjv}}
+\newcommand{\neb}{{\relscale{0.9}NEB}\nocite{1961neb}}
+\newcommand{\rsv}{{\relscale{0.9}RSV}\nocite{1971rsv}}
+\newcommand{\nrsv}{{\relscale{0.9}NRSV}\nocite{1989nrsv}}
+
+% Manuscripts
+\newcommand{\lxx}{{\relscale{0.9}LXX}}
+\newcommand{\mt}{{\relscale{0.9}MT}}
+
+% Reference
+\newcommand{\halot}{{\relscale{0.9}HALOT}\nocite{kohler2017halot}}
+\newcommand{\bdb}{{\relscale{0.9}BDB}\nocite{bdb2000}}
+\newcommand{\bdag}{{\relscale{0.9}BDAG}\nocite{bauer2010greek}}
+
+
+
+
+% Hanging quote
+\AtBeginDocument{
+    \newlength{\dquowd}
+    \settowidth{\dquowd}{``}
+    \newcommand{\hangdquote}{\hspace{-\dquowd}``}
+}
